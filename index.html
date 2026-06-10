@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#173f43">
+    <title>Treino de Kanji</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#" id="brand-link" aria-label="Voltar ao início">
+        <span class="brand-mark" aria-hidden="true">字</span>
+        <span>Treino de Kanji</span>
+      </a>
+      <span class="session-badge">Sessão local</span>
+    </header>
+
+    <main>
+      <section class="screen active" id="home-screen" aria-labelledby="home-title">
+        <div class="hero">
+          <p class="eyebrow">Leitura, memória, ritmo</p>
+          <h1 id="home-title">Pratique kanji no seu tempo.</h1>
+          <p class="hero-copy">
+            Importe sua lista, defina a duração e responda quantas perguntas conseguir.
+          </p>
+        </div>
+
+        <div class="panel setup-panel">
+          <div class="step">
+            <div class="step-heading">
+              <span class="step-number">1</span>
+              <div>
+                <h2>Importe suas perguntas</h2>
+                <p>O arquivo permanece somente durante esta sessão.</p>
+              </div>
+            </div>
+
+            <label class="file-drop" id="file-drop">
+              <input id="csv-input" type="file" accept=".csv,text/csv">
+              <span class="upload-icon" aria-hidden="true">↑</span>
+              <span class="file-action">Escolher arquivo CSV</span>
+              <span class="file-status" id="file-status">Nenhum arquivo importado</span>
+            </label>
+
+            <details class="format-help">
+              <summary>Ver formato esperado do CSV</summary>
+              <code>palavra;correta;opcao2;opcao3;opcao4;traducao</code>
+            </details>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="step">
+            <div class="step-heading">
+              <span class="step-number">2</span>
+              <div>
+                <h2>Defina o tempo</h2>
+                <p>O treino termina quando o tempo acabar ou a lista terminar.</p>
+              </div>
+            </div>
+
+            <div class="time-fields">
+              <label>
+                <span>Minutos</span>
+                <input id="minutes-input" type="number" value="5" min="0" max="999" inputmode="numeric">
+              </label>
+              <span class="time-separator" aria-hidden="true">:</span>
+              <label>
+                <span>Segundos</span>
+                <input id="seconds-input" type="number" value="0" min="0" max="59" inputmode="numeric">
+              </label>
+            </div>
+          </div>
+
+          <button class="primary-button" id="start-button" type="button" disabled>Iniciar treino</button>
+        </div>
+      </section>
+
+      <section class="screen" id="game-screen" aria-labelledby="question-word">
+        <div class="game-header">
+          <div>
+            <p class="eyebrow">Em andamento</p>
+            <p class="question-progress" id="question-progress">Pergunta 1 de 1</p>
+          </div>
+          <div class="timer" id="timer" aria-label="Tempo restante">05:00</div>
+        </div>
+
+        <div class="progress-track" aria-hidden="true">
+          <span id="progress-bar"></span>
+        </div>
+
+        <div class="panel question-panel">
+          <p class="question-label">Qual é a leitura?</p>
+          <h1 class="kanji" id="question-word">漢字</h1>
+          <p class="translation" id="translation" aria-live="polite"></p>
+          <div class="answers" id="answers"></div>
+          <button class="primary-button next-button" id="next-button" type="button">Próxima</button>
+        </div>
+      </section>
+
+      <section class="screen" id="result-screen" aria-labelledby="result-title">
+        <div class="panel result-panel">
+          <p class="eyebrow">Treino concluído</p>
+          <h1 id="result-title">Fim da partida</h1>
+          <div class="score-ring" id="score-ring">
+            <strong id="score-percentage">0%</strong>
+            <span>de acertos</span>
+          </div>
+          <div class="result-grid">
+            <div><span>Respondidas</span><strong id="result-answered">0</strong></div>
+            <div><span>Acertos</span><strong class="correct-text" id="result-correct">0</strong></div>
+            <div><span>Erros</span><strong class="wrong-text" id="result-wrong">0</strong></div>
+          </div>
+          <button class="primary-button" id="play-again-button" type="button">Jogar novamente</button>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
