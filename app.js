@@ -26,6 +26,7 @@ const elements = {
   minutesInput: document.querySelector("#minutes-input"),
   secondsInput: document.querySelector("#seconds-input"),
   startButton: document.querySelector("#start-button"),
+  backButton: document.querySelector("#back-button"),
   questionProgress: document.querySelector("#question-progress"),
   progressBar: document.querySelector("#progress-bar"),
   timer: document.querySelector("#timer"),
@@ -68,6 +69,7 @@ elements.fileDrop.addEventListener("drop", (event) => {
 });
 
 elements.startButton.addEventListener("click", startGame);
+elements.backButton.addEventListener("click", returnHome);
 elements.nextButton.addEventListener("click", nextQuestion);
 elements.playAgainButton.addEventListener("click", returnHome);
 elements.brandLink.addEventListener("click", (event) => {
