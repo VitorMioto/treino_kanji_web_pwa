@@ -312,3 +312,16 @@ function shuffle(values) {
 function clamp(value, minimum, maximum) {
   return Math.min(Math.max(value, minimum), maximum);
 }
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        navigator.serviceWorker
+            .register("./service-worker.js")
+            .then(() => {
+                console.log("Treino Kanji Web - Service Worker registrado");
+            })
+            .catch((error) => {
+                console.error("Erro ao registrar Service Worker:", error);
+            });
+    });
+}
