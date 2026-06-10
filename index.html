@@ -81,9 +81,15 @@
 
       <section class="screen" id="game-screen" aria-labelledby="question-word">
         <div class="game-header">
-          <div>
-            <p class="eyebrow">Em andamento</p>
-            <p class="question-progress" id="question-progress">Pergunta 1 de 1</p>
+          <div class="game-status">
+            <button class="back-button" id="back-button" type="button" aria-label="Voltar à página inicial">
+              <span aria-hidden="true">←</span>
+              Voltar
+            </button>
+            <div>
+              <p class="eyebrow">Em andamento</p>
+              <p class="question-progress" id="question-progress">Pergunta 1 de 1</p>
+            </div>
           </div>
           <div class="timer" id="timer" aria-label="Tempo restante">05:00</div>
         </div>
